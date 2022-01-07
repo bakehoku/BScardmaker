@@ -1,6 +1,14 @@
 import requests
+import os
  
 TOKEN = "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImFiMGM0ZmQxLTBmMjctNDdmOC05YWY5LWFhNmZlYzllYjU5MyIsImlhdCI6MTYwOTQxNDgxNSwic3ViIjoiZGV2ZWxvcGVyLzcxYTRhZDAzLTAxZTYtZjJhOC0yZTM1LTEyODlhMmQ3OWM3NCIsInNjb3BlcyI6WyJicmF3bHN0YXJzIl0sImxpbWl0cyI6W3sidGllciI6ImRldmVsb3Blci9zaWx2ZXIiLCJ0eXBlIjoidGhyb3R0bGluZyJ9LHsiY2lkcnMiOlsiMTI1LjE5OC4xNzguMzUiXSwidHlwZSI6ImNsaWVudCJ9XX0.MOmHX6krZyeh197bOxhX1D2Abr0J_UPrf91zwo1Q6U4BQHVcAPbn1BpOQCrpMiAFIECYGHRToQ2anAvBYaI1ww"
+
+def get_proxies():
+    proximo_url = os.environ.get('PROXIMO_URL')
+    print(proximo_url)
+    if proximo_url is None:
+        return {}
+    return {'http': proximo_url, 'https': proximo_url}
 
 def GETrank(Tag):
     URL_p = "https://api.brawlstars.com/v1/players/%23"
