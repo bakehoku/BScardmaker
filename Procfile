@@ -1,1 +1,1 @@
-worker: bin/proximo web: gunicorn webapp:app
+web: bin/proximo gunicorn webapp:app
